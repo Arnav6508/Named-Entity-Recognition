@@ -27,9 +27,9 @@ def build_model(epochs = 2):
     model = create_model(len(tag_map), len(vocab))
     model = compile_model(model)
     model = train_model(model, train_dataset, val_dataset, epochs)
+
+    ## model.save() did not work because i used custom loss and accuracy functions
     model.save_weights('model_weights/model_weights.weights.h5')
     print('Model saved')
 
     compute_accuracy(model, test_sentences, test_labels, sentence_vectorizer, tag_map)
-
-build_model()
