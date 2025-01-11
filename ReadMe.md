@@ -92,7 +92,9 @@ These are the updates I am looking forward to make in this repository:
 
 -> A separate preprocess file for processing the sentences passed in the inference file since the dataset was already preprocessed.
 
--> Add test_accuracy function in inference file that utilises compute_accuracy function from utils to calculate accuracy of saved model on test set.
+-> Add test_accuracy function in inference file that utilises compute_accuracy function from utils to calculate accuracy of saved model on test set. In addition to this, need to incorporate other metrics like F1 score, etc
+
+-> Utilise Part-of-speech, dropout layer and more epochs for more accurate model. 
 
 -> Deploy the repository with a proper frontend 😍
 
