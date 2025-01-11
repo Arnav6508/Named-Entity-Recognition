@@ -21,6 +21,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#future-goals">Future Goals</a></li>
       </ul>
     </li>
     <li>
@@ -82,6 +83,18 @@ The methodology follows a sequence-to-sequence modeling approach with the use of
 -> Predicted labels are mapped back to the original text tokens for interpretability.
 
 This structured approach ensures the model is robust and effective in recognizing named entities achieivng <b>97% accuracy</b> on test set.
+
+Special thanks to <b>Debasis Samal</b> Kaggle user whose open-source dataset I have used. URL of dataset: https://www.kaggle.com/datasets/debasisdotcom/name-entity-recognition-ner-dataset
+
+### Future Goals
+
+These are the updates I am looking forward to make in this repository:
+
+-> A separate preprocess file for processing the sentences passed in the inference file since the dataset was already preprocessed.
+
+-> Add test_accuracy function in inference file that utilises compute_accuracy function from utils to calculate accuracy of saved model on test set.
+
+-> Deploy the repository with a proper frontend 😍
 
 
 <!-- GETTING STARTED -->
