@@ -17,13 +17,9 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#methodology">Methodology</a></li>
-        <li><a href="#future-goals">Future Goals</a></li>
-      </ul>
-    </li>
+    <li><a href="#about-the-project">About The Project</a>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#future-goals">Future Goals</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -57,7 +53,7 @@ Labelling aid:
 Everything else that is labeled with an O is not considered to be a named entity. 
 
 
-### Methodology
+## Methodology
 
 The methodology follows a sequence-to-sequence modeling approach with the use of Long Short-Term Memory (LSTM) networks for robust context understanding. Below is an outline of the steps:
 
@@ -86,7 +82,7 @@ This structured approach ensures the model is robust and effective in recognizin
 
 Special thanks to <b>Debasis Samal</b> Kaggle user whose open-source dataset I have used. URL of dataset: https://www.kaggle.com/datasets/debasisdotcom/name-entity-recognition-ner-dataset
 
-### Future Goals
+## Future Goals
 
 These are the updates I am looking forward to make in this repository:
 
