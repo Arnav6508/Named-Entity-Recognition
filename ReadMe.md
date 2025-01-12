@@ -88,9 +88,7 @@ These are the updates I am looking forward to make in this repository:
 
 -> A separate preprocess file for processing the sentences passed in the inference file since the dataset was already preprocessed.
 
--> Add test_accuracy function in inference file that utilises compute_accuracy function from utils to calculate accuracy of saved model on test set. In addition to this, need to incorporate other metrics like F1 score, etc
-
--> Utilise Part-of-speech, dropout layer and more epochs for more accurate model. 
+-> Utilise Part-of-speech and pre-trained word embeddings in the model for even better accuracy.
 
 -> Deploy the repository with a proper frontend 😍
 
@@ -98,7 +96,8 @@ These are the updates I am looking forward to make in this repository:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To use the project locally, just utilise the inference function in main.py for testing on personal data, you can also create your own model by using build_model function in main.py
+To use the project locally, you can start by creating your own model by using build_model function in model.py!<br>
+For inference, just utilise the predict function in inference.py for testing on personal data. There is also test_accuracy function in the file to calculate accuracy on any unseen data.
 
 
 ### Installation
