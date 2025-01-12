@@ -1,4 +1,5 @@
 import tensorflow as tf
+import matplotlib.pyplot as plt
 
 def get_sentence_vectorizer(sentences):
     sentence_vectorizer = tf.keras.layers.TextVectorization(standardize = None)
@@ -57,10 +58,12 @@ def masked_accuracy(y_true, y_pred):
 
     return tf.reduce_sum(y_correct_with_mask)/tf.reduce_sum(mask)
 
-def create_model(len_tags, vocab_size, embedding_dim = 50):
+def create_model(len_tags, vocab_size, embedding_dim = 50, dropout_rate = 0.2):
     model = tf.keras.Sequential()
     model.add(tf.keras.layers.Embedding(vocab_size+1, embedding_dim, mask_zero = True))
-    model.add(tf.keras.layers.LSTM(units = embedding_dim, return_sequences= True))
+    model.add(tf.keras.layers.Dropout(dropout_rate))
+    model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(units = embedding_dim, return_sequences= True)))
+    model.add(tf.keras.layers.Dropout(dropout_rate))
     model.add(tf.keras.layers.Dense(units = len_tags, activation = tf.nn.log_softmax))
 
     return model
@@ -73,12 +76,25 @@ def compile_model(model):
     )
     return model
 
+def make_plot(history, metric):
+    plt.plot(history.history[f'{metric}'], label = f'{metric}')
+    plt.plot(history.history[f'val_{metric}'], label = f'Val_{metric}')
+    plt.title(f'{metric} over Epochs')
+    plt.xlabel('Epochs')
+    plt.ylabel(metric)
+    plt.legend()
+    plt.show()
+
 def train_model(model, train_dataset, val_dataset, epochs = 2, BATCH_SIZE = 64):
-    model.fit(train_dataset.batch(BATCH_SIZE),
+    history = model.fit(train_dataset.batch(BATCH_SIZE),
               validation_data = val_dataset.batch(BATCH_SIZE),
               shuffle = True,
               epochs = epochs
               )
+    
+    make_plot(history, 'loss')
+    make_plot(history, 'masked_accuracy')
+
     return model
 
 def compute_accuracy(model, test_sentences, test_labels, sentence_vectorizer, tag_map):
