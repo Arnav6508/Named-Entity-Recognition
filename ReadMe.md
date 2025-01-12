@@ -18,7 +18,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project">About The Project</a>
-    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#methodology">Methodologya</a></li>
     <li><a href="#future-goals">Future Goals</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -64,7 +64,8 @@ The methodology follows a sequence-to-sequence modeling approach with the use of
 
 2. <b>Model Architecture</b>
 -> Embedding Layer: Converts tokens into dense vectors, capturing semantic meaning.
--> LSTM Layer: Processes the token sequences while maintaining contextual information, leveraging the sequential nature of the text.
+-> Bidirectional LSTM Layer: Processes the token sequences while maintaining contextual information from both previous tokens and future tokens.
+-> Dropout Layer: Applied to prevent overfitting by randomly zeroing some of the layer outputs during training.
 -> Dense Layer: Maps the LSTM output to entity classes for each token.
 -> Activation Function: A softmax function is used for multiclass classification, producing probabilities for each entity label.
 
@@ -78,7 +79,7 @@ The methodology follows a sequence-to-sequence modeling approach with the use of
 -> The trained model is used to predict entity labels for unseen text.
 -> Predicted labels are mapped back to the original text tokens for interpretability.
 
-This structured approach ensures the model is robust and effective in recognizing named entities achieivng <b>97% accuracy</b> on test set.
+This structured approach ensures the model is robust and effective in recognizing named entities achieivng <b>96.55% accuracy</b> on test set.
 
 Special thanks to <b>Debasis Samal</b> Kaggle user whose open-source dataset I have used. URL of dataset: https://www.kaggle.com/datasets/debasisdotcom/name-entity-recognition-ner-dataset
 
